@@ -2,7 +2,7 @@ import { useAuth, UserButton } from "@clerk/clerk-react";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 
-export const ProfileContainer = () => {
+ const ProfileContainer = () => {
   const { isSignedIn, isLoaded } = useAuth();
   if (!isLoaded) {
     return (
@@ -21,3 +21,5 @@ export const ProfileContainer = () => {
   </div>
   );
 };
+
+export default ProfileContainer;

@@ -9,9 +9,9 @@ export const PublicLayout = () => {
     <div className="w-full">
       {/* handler to store the user data */}
       <AuthHanlder />
-      <Header></Header>
-      <Outlet></Outlet>
-      <Footer></Footer>
+      <Header/>
+      <Outlet/>
+      <Footer/>
      
     </div>
   );

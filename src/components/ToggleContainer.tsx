@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils";
 
 
 
-export const ToggleContainer = () => {
+ const ToggleContainer = () => {
     const {userId}=useAuth();
 
   return (
@@ -48,5 +48,5 @@ export const ToggleContainer = () => {
   
   );
 };
-
+export default ToggleContainer;
 
