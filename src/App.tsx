@@ -10,9 +10,9 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        {/* public routes */}
-        <Route element={<PublicLayout/>}>
-         <Route index element={<HomePage/>} />
+         {/* public routes */}
+         <Route element={<PublicLayout />}>
+          <Route index element={<HomePage />} />
         </Route>
 
         {/* authentication layout */}
@@ -24,7 +24,8 @@ const App = () => {
         <Route element={
           <ProtectRoutes>
             <MainLayout/>
-          </ProtectRoutes>}/>
+          </ProtectRoutes>
+        }/>
         </Routes>
     </Router>
   )
