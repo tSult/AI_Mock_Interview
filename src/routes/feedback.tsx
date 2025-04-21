@@ -14,7 +14,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "sonner";
 import { LoaderPage } from "./loader-page";
 import { CustomBreadCrumb } from "@/components/custom-bread-crumb";
-import { Headings } from "@/components/headings";
+
 import { InterviewPin } from "@/components/pin";
 import {
   Accordion,
@@ -25,6 +25,7 @@ import {
 import { cn } from "@/lib/utils";
 import { CircleCheck, Star } from "lucide-react";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
+import Headings from "@/components/headings";
 
 export const Feedback = () => {
   const { interviewId } = useParams<{ interviewId: string }>();
