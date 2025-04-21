@@ -1,5 +1,6 @@
-import { Headings } from "@/components/headings";
+import Headings from "@/components/headings";
 import { InterviewPin } from "@/components/pin";
+
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -71,6 +72,7 @@ export const Dashboard = () => {
         {loading ? (
           Array.from({ length: 6 }).map((_, index) => (
             <Skeleton key={index} className="h-24 md:h-32 rounded-md" />
+            
           ))
         ) : interviews.length > 0 ? (
           interviews.map((interview) => (

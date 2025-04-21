@@ -12,6 +12,7 @@ import { InterviewPin } from "@/components/pin";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import WebCam from "react-webcam";
 
+
 export const MockLoadPage = () => {
   const { interviewId } = useParams<{ interviewId: string }>();
   const [interview, setInterview] = useState<Interview | null>(null);

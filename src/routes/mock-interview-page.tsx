@@ -11,6 +11,8 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Lightbulb } from "lucide-react";
 import { QuestionSection } from "@/components/question-section";
 
+
+
 export const MockInterviewPage = () => {
   const { interviewId } = useParams<{ interviewId: string }>();
   const [interview, setInterview] = useState<Interview | null>(null);
@@ -87,6 +89,7 @@ export const MockInterviewPage = () => {
           </div>
         </Alert>
       </div>
+
 
       {interview?.questions && interview?.questions.length > 0 && (
         <div className="mt-4 w-full flex flex-col items-start gap-4">

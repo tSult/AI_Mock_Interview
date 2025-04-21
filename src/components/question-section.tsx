@@ -5,6 +5,8 @@ import { TooltipButton } from "./tooltip-button";
 import { Volume2, VolumeX } from "lucide-react";
 import { RecordAnswer } from "./record-answer";
 
+
+
 interface QuestionSectionProps {
   questions: { question: string; answer: string }[];
 }
