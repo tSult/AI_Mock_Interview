@@ -54,9 +54,21 @@ type FormData = z.infer<typeof formSchema>;
 
 export const FormMockInterview = ({ initialData }: FormMockInterviewProps) => {
   const form = useForm<FormData>({
+    
     resolver: zodResolver(formSchema),
-    defaultValues: initialData || {},
+   defaultValues: {
+    position: "",
+    description: "",
+    experience: 0,
+    techStack: "",
+    ...(initialData ?? {}),
+    
+  },
   });
+  
+  console.log("isValid:", form.formState.isValid);
+  console.log("errors:", form.formState.errors);
+
 
   const { isValid, isSubmitting } = form.formState;
   const [loading, setLoading] = useState(false);
@@ -77,8 +89,8 @@ export const FormMockInterview = ({ initialData }: FormMockInterviewProps) => {
     // Step 1: Trim any surrounding whitespace
     let cleanText = responseText.trim();
 
-    // Step 2: Remove any occurrences of "json" or code block symbols (``` or `)
-    cleanText = cleanText.replace(/(json|```|`)/g,"");
+    // Step 2: Remove any occurrences of "json" or code block symbols ( or `)
+    cleanText = cleanText.replace(/(json||`)/g,"");
 
     // Step 3: Extract a JSON array by capturing text between square brackets
     const jsonArrayMatch = cleanText.match(/\[.*\]/s);
@@ -115,7 +127,7 @@ export const FormMockInterview = ({ initialData }: FormMockInterviewProps) => {
         `;
 
     const aiResult = await chatSession.sendMessage(prompt);
-    const cleanedResponse = cleanAiResponse(aiResult.response.text()); 
+    const cleanedResponse = cleanAiResponse(aiResult); 
 
 
     return cleanedResponse;
@@ -217,7 +229,7 @@ export const FormMockInterview = ({ initialData }: FormMockInterviewProps) => {
               disabled={loading}
               placeholder="eg:- Full Stack Developer"
               {...field}
-              value={field.value || " "}
+              
               />
             </FormControl>
           </FormItem>
@@ -238,8 +250,8 @@ export const FormMockInterview = ({ initialData }: FormMockInterviewProps) => {
                    className="h-12"
                    disabled={loading}
                    placeholder="eg:- describle your job role"
+                   
                    {...field}
-                   value={field.value || ""}
                   />
                 </FormControl>
               </FormItem>
@@ -268,8 +280,8 @@ export const FormMockInterview = ({ initialData }: FormMockInterviewProps) => {
                     className="h-12"
                     disabled={loading}
                     placeholder="eg:- 5 Years"
+                    
                     {...field}
-                    value={field.value || ""}
                   />
 
                 </FormControl>
@@ -292,7 +304,7 @@ export const FormMockInterview = ({ initialData }: FormMockInterviewProps) => {
                   disabled={loading}
                   className="h-12"
                   placeholder="eg:- Full stack developer"
-                  value={field.value || ""}
+                  
                   />
                 </FormControl>
               </FormItem>
@@ -305,6 +317,7 @@ export const FormMockInterview = ({ initialData }: FormMockInterviewProps) => {
               size={"sm"}
               variant={"outline"}
               disabled={isSubmitting || loading}
+              
             >
               Reset
             </Button>
