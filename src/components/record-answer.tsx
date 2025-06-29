@@ -123,7 +123,7 @@ export const RecordAnswer = ({
       const aiResult = await chatSession.sendMessage(prompt);
 
       const parsedResult: AIResponse = cleanJsonResponse(
-        aiResult.response.text()
+        aiResult
       );
       return parsedResult;
     } catch (error) {
